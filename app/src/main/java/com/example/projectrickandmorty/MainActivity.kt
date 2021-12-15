@@ -27,10 +27,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var mService: RetrofitServices
-    lateinit var layoutManager: LinearLayoutManager
-    lateinit var adapter: CharactersAdapter
-    lateinit var dialog: AlertDialog
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme);
@@ -47,40 +44,9 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        mService = Common.Common.retrofitService
-        recyclerCharactersList.setHasFixedSize(true)
-        layoutManager = LinearLayoutManager(this)
-        recyclerCharactersList.layoutManager = layoutManager
-        dialog = SpotsDialog.Builder().setCancelable(true).setContext(this).build()
-
-        getAllCharactersList()
-
     }
 
 
-    private fun getAllCharactersList() {
-        dialog.show()
-        mService.getCharacterList().enqueue(object : Callback<Responsee> {
-            override fun onFailure(call: Call<Responsee>, t: Throwable) {
-                Log.d("TAG", "ERROR = " + t.message.toString())
 
-                dialog.dismiss()
-
-            }
-
-            override fun onResponse(call: Call<Responsee>, response: Response<Responsee>) {
-                adapter = CharactersAdapter(baseContext, response.body()?.results as MutableList<Characters>)
-                adapter.notifyDataSetChanged()
-                recyclerCharactersList.adapter = adapter
-
-                Log.d("TAG", "BODY = " + response.body())
-//                var obj = response.body()
-
-
-
-                dialog.dismiss()
-            }
-        })
-    }
 
 }
