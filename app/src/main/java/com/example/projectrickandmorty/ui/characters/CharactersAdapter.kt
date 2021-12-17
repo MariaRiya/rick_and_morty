@@ -1,5 +1,6 @@
 package com.example.projectrickandmorty.ui.characters
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectrickandmorty.ui.Characters
-//import com.example.projectrickandmorty.Model.Movie
-import android.R.layout
 import com.example.projectrickandmorty.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_layout.view.*
@@ -52,6 +51,18 @@ class CharactersAdapter(private val context: Context, private val charactersList
         holder.txt_status.text = charactersList[position].status
         holder.txt_gender.text = charactersList[position].gender
 
+    }
+
+    fun addItems(list : MutableList<Characters>){
+        if(charactersList.size == 0){
+            charactersList.addAll(list)
+        }else {
+            for(i in charactersList.size..list.size-1){
+                charactersList.add(list[i])
+            }
+        }
+
+        Log.d("TAG" , "adapter size = " + charactersList.size)
     }
 
 }

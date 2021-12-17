@@ -18,6 +18,8 @@ class CharactersViewModel : ViewModel() {
     lateinit var mService: RetrofitServices
     internal var showDialog = MutableLiveData<Boolean>()
 
+    internal var pagesCount = MutableLiveData<Int>(0)
+
 
     init{
         mService = Common.Common.retrofitService
@@ -37,8 +39,32 @@ class CharactersViewModel : ViewModel() {
 
             override fun onResponse(call: Call<Responsee>, response: Response<Responsee>) {
                 charactersList.value = response.body()?.results
+                pagesCount.value = response.body()?.info?.pages
                Log.d("TAG", "BODY = " + response.body())
                 showDialog.value = true
+
+
+
+            }
+        })
+    }
+
+    fun load(page : Int){
+        mService.getCharactersByPage(page).enqueue(object : Callback<Responsee> {
+            override fun onFailure(call: Call<Responsee>, t: Throwable) {
+                Log.d("TAG", "ERROR = " + t.message.toString())
+      //          showDialog.value = true
+// need to add some message about exception
+            }
+
+            override fun onResponse(call: Call<Responsee>, response: Response<Responsee>) {
+                response.body()?.results?.let { charactersList.value?.addAll(it) }
+                charactersList.value = charactersList.value
+                Log.d("TAG", "BODY LOADED= " + response.body())
+
+                Log.d("TAG", "LIST SIZE= " + charactersList.value?.size)
+
+                //        showDialog.value = true
 
 
 
