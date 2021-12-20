@@ -3,22 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_characters">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_characters"
         android:name="com.example.projectrickandmorty.ui.characters.CharactersFragment"
         android:label="@string/title_characters"
-        tools:layout="@layout/fragment_characters" />
+        tools:layout="@layout/fragment_characters" >
+        <action
+            android:id="@+id/action_charactersFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.example.projectrickandmorty.ui.characters.CharacterDetailFragment"
+        android:label="Character Detail"
+        tools:layout="@layout/character_detail_fragment" />
+
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_locations"
         android:name="com.example.projectrickandmorty.ui.locations.LocationsFragment"
         android:label="@string/title_locations"
         tools:layout="@layout/fragment_locations" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_episodes"
         android:name="com.example.projectrickandmorty.ui.episodes.EpisodesFragment"
         android:label="@string/title_episods"
         tools:layout="@layout/fragment_episodes" />

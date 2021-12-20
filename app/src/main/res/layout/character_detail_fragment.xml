@@ -20,13 +20,16 @@
             app:srcCompat="@drawable/characters_icon"
             android:layout_gravity="center"/>
 
-
-        <TableLayout
-            android:id="@+id/tableLayout"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_weight="0.7">
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -225,7 +228,6 @@
 
             </TableRow>
 
-            <ScrollView>
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -245,8 +247,9 @@
                     android:text="" />
 
             </TableRow>
-            </ScrollView>
+
         </TableLayout>
+        </ScrollView>
     </LinearLayout>
 
 

@@ -2,6 +2,7 @@ package com.example.projectrickandmorty.interfacee
 
 import com.example.projectrickandmorty.models.ResponseEpisodes
 import com.example.projectrickandmorty.models.ResponseLocations
+import com.example.projectrickandmorty.ui.Characters
 import com.example.projectrickandmorty.ui.ResponseCharacters
 //import com.example.projectrickandmorty.ui.characters.Character
 import retrofit2.Call
@@ -16,6 +17,9 @@ interface RetrofitServices {
     fun getCharactersByPage(
         @Query("page") pageIndex: Int
     ): Call<ResponseCharacters>
+
+    @GET("character/{id}")
+    fun getCharacterById(@Path("id") id: Int): Call<Characters>
 
 
     @GET("episode")
