@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projectrickandmorty.ui.Characters
 import com.example.projectrickandmorty.R
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_layout.view.*
+import kotlinx.android.synthetic.main.item_layout_character.view.*
 
 class CharactersAdapter(private val context: Context, private val charactersList: MutableList<Characters>):RecyclerView.Adapter<CharactersAdapter.MyViewHolder>() {
 
@@ -35,7 +35,7 @@ class CharactersAdapter(private val context: Context, private val charactersList
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_layout_character, parent, false)
         return MyViewHolder(itemView)
     }
 

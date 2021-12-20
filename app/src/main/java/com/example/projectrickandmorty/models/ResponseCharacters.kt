@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class Responsee(
+data class ResponseCharacters(
     var info : Info? = null,
     var results : MutableList<Characters>? = null
 )
@@ -43,6 +43,3 @@ data class Location(
     var url : String? = null
 )
 
-data class Episode(
-    var episodes : MutableList<String>? = null
-)
