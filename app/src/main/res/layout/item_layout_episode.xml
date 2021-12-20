@@ -54,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.1"
-                        android:text="@string/species" />
+                        android:text="@string/episode" />
 
                     <TextView
                         android:id="@+id/textView_episode_value"
@@ -74,7 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.1"
-                        android:text="@string/status" />
+                        android:text="@string/air_date" />
 
                     <TextView
                         android:id="@+id/textView_air_date_value"

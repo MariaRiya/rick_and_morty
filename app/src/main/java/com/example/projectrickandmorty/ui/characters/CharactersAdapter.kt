@@ -24,10 +24,6 @@ class CharactersAdapter(private val context: Context, private val charactersList
 
 
         fun bind(listItem: Characters) {
-            image.setOnClickListener {
-                Toast.makeText(it.context, "нажал на ${itemView.imageView_character}", Toast.LENGTH_SHORT)
-                    .show()
-            }
             itemView.setOnClickListener {
                 Toast.makeText(it.context, "нажал на ${itemView.textView_name_value.text}", Toast.LENGTH_SHORT).show()
             }
